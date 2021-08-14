@@ -61,8 +61,8 @@ final class SuggestionProcessing {
                                                    maximum: maximumOfNavigationalSuggestions)
 
         // Split the Top Hits and the History and Bookmarks section
-        let topHits = topHits(from: navigationalSuggestions)
-        let historyAndBookmarkSuggestions = Array(navigationalSuggestions.dropFirst(topHits.count).filter { suggestion in
+        let topHitsx = topHits(from: navigationalSuggestions)
+        let historyAndBookmarkSuggestions = Array(navigationalSuggestions.dropFirst(topHitsx.count).filter { suggestion in
             switch suggestion {
             case .bookmark, .historyEntry:
                 return true
@@ -71,7 +71,7 @@ final class SuggestionProcessing {
             }
         })
 
-        return makeResult(topHits: topHits,
+        return makeResult(topHits: topHitsx,
                           duckduckgoSuggestions: duckDuckGoSuggestions,
                           historyAndBookmarks: historyAndBookmarkSuggestions)
     }
